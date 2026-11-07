@@ -19,7 +19,7 @@ if st.button("Interroger l'API pour predire", use_container_width=True):
         "Fare": float(fare)
     }
     try:
-        response = requests.post("http://localhost:8000/predict", json=payload)
+        response = requests.post("http://host.docker.internal:8000/predict", json=payload)
         if response.status_code == 200:
             result = response.json()
             st.success(f"Verdict : {result['status']}")
